@@ -1,0 +1,39 @@
+CLEAN THE DATA SET USING interpolate(method='linear')-This fills NaN values by drawing a straight line between the nearest known values — great for sea level data that generally changes gradually.
+--pandas (pd): To load and manipulate CSV data.
+
+matplotlib.pyplot (plt): For plotting charts and graphs.
+
+linregress from scipy.stats: To perform linear regression and get the line of best fit.
+❓Why:
+We need to:
+
+--Load and inspect the data (Pandas),
+
+Visualize it (Matplotlib),
+
+Analyze trends and predict future values (Scipy's linear regression).
+plt.figure(...): Creates a new figure with a defined size.
+
+--plt.scatter(...): Plots a scatter plot using:
+
+Year as x-axis,
+
+CSIRO Adjusted Sea Level as y-axis.
+
+❓Why:
+The scatter plot shows how sea levels have changed over time. It gives a visual sense of the data’s trend.
+--df['Year']: This is the independent variable (X-axis), typically time (years).
+
+df['CSIRO Adjusted Sea Level']: This is the dependent variable (Y-axis), the value you're trying to model — here, the sea level.
+
+📈 linregress() returns a regression model:
+This function fits a straight line to the data:
+y=slope⋅x+intercept
+The result res_all will contain:res_all is a named tuple with these 6 values:
+
+Attribute	Meaning
+slope	How much sea level changes per year
+intercept	Estimated sea level at year 0
+rvalue	Correlation coefficient (how well the line fits the data)
+pvalue	p-value for hypothesis test (used to check statistical significance)
+stderr	Standard error of the estimate
